@@ -1,0 +1,64 @@
+.bg-image {
+  /* The image used */
+  background-image: url('https://miro.medium.com/max/1200/1*IRCIzwfn8iCUPP5blvl_tQ.png');
+
+  /* Add the blur effect */
+  filter: blur(3px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  opacity: 0.4;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  position: absolute;
+  top: 10%;
+  /* left: 0; */
+  /* transform: translate(-50%, -50%); */
+  z-index: 2;
+  padding: 20px;
+  text-align: center;
+}
+
+.searchbox {
+  padding: 7px 15px;
+  border-radius: 3px;
+  background: #333;
+  outline: none;
+  border: none;
+  color: #fefefe;
+  font-size: 1.4em;
+  margin: 1em;
+}
+
+.contries {
+  margin: 0em 1em 1em 1em;
+}
+
+.contries div:first-child {
+  font-weight: medium;
+  font-size: 1.8em;
+}
+
+.contries p {
+  margin: 2px;
+  font-weight: medium;
+  letter-spacing: 1px;
+  color: #ccc;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}

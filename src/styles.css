@@ -26,6 +26,21 @@ body {
   color: var(--text-light-1);
 }
 
+label {
+  color: #f2f2f2;
+  margin-bottom: 3px;
+  font-size: 0.8em;
+}
+
+input {
+  padding: 7px 12px;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 10px;
+  background: #333;
+  color: whitesmoke;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -58,6 +73,41 @@ body {
 
 .container > * {
   flex: 1 1 auto;
+}
+
+.btn {
+  padding: .6em 1em;
+  margin: 5px 0px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  cursor: pointer;
+  color: whitesmoke;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  background-color: rgba(0, 139, 139, 1);
+  transition: all .3s ease;
+}
+
+.btn:disabled, .btn:disabled:hover {
+  opacity: .7;
+}
+
+.btn:hover {
+  opacity: .9;
+}
+
+.btn.dark {
+  background-color: var(--text-dark-1);
+}
+
+.btn.btn-small {
+  padding: .4em .6em;
+}
+
+.btn.btn-full-width {
+  width: 100%;
 }
 
 .lds-hourglass {

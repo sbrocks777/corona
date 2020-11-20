@@ -10,7 +10,7 @@ import { GlobalComponent } from './components/global/global.component';
 import { ContiresComponent } from './components/contires/contires.component';
 import { AboutComponent } from './components/about/about.component';
 import { ErrPageComponent } from './components/err-page/err-page.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SkeletonLoaderComponent } from './components/skeleton-loader/skeleton-loader.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
@@ -19,6 +19,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
+import { BlogComponent } from './components/blog/blog.component';
 
 
 @NgModule({
@@ -31,11 +32,13 @@ import { environment } from 'src/environments/environment';
     AboutComponent,
     ErrPageComponent,
     SkeletonLoaderComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
     Ng2SearchPipeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

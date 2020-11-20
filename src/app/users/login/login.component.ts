@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,16 +24,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      mobileNumber: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(10),
-        ],
-      ],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.minLength(6), Validators.required]],
       passwordConfirm: ['', []],
@@ -57,15 +48,6 @@ export class LoginComponent implements OnInit {
     return this.type === 'reset';
   }
 
-  get firstName() {
-    return this.form.get('firstName');
-  }
-  get lastName() {
-    return this.form.get('lastName');
-  }
-  get mobileNumber() {
-    return this.form.get('mobileNumber');
-  }
   get email() {
     return this.form.get('email');
   }
@@ -90,30 +72,17 @@ export class LoginComponent implements OnInit {
 
     const email = this.email.value;
     const password = this.password.value;
-    const firstName = this.firstName.value;
-    const lastName = this.lastName.value;
-    const mobileNumber = this.mobileNumber.value;
 
     try {
       if (this.isLogin) {
-        await this.authService.signIn(email, password).then((result: any) => {
-          if (!result.user.emailVerified) {
-            this.authService.signOut();
-            this.serverMessage = 'Email is not verified';
-            this.authService.sendVerificationMail().then(() => {
-              alert('Your email is not verified, Please Check Your Inbox!');
-            });
-          } else {
-            this.router.navigate(['']);
-          }
+        await this.authService.signIn(email, password).then(() => {
+          this.router.navigate(['']);
         });
       }
       if (this.isSignup) {
-        await this.authService
-          .signUp(firstName, lastName, email, password, mobileNumber)
-          .then((data) => {
-            this.type = 'login';
-          });
+        await this.authService.signUp(email, password).then(() => {
+          this.router.navigate(['']);
+        });
       }
       if (this.isPasswordReset) {
         await this.authService.passwordReset(email);

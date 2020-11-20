@@ -43,20 +43,17 @@ export class AuthService {
 
   /** Login with email */
   signIn(email, password) {
-    this.afAuth.signInWithEmailAndPassword(email, password).then(() => {
-      this.router.navigate(['']);
-    });
+    return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
   /** SignUp with email */
   signUp(email, password) {
-    this.afAuth.createUserWithEmailAndPassword(email, password);
-    this.router.navigate(['']);
+    return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
 
   signOut() {
     this.afAuth.signOut();
-    this.router.navigate(['user/register']);
+    this.router.navigate(['register']);
   }
 
   /** Password reset email */

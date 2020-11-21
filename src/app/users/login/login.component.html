@@ -1,0 +1,80 @@
+<div class="login-form">
+    <div *ngIf="isSignup">
+        <h1>Create Account</h1>
+    </div>
+
+    <div *ngIf="isLogin">
+        <h1>Sign In</h1>
+    </div>
+
+    <div *ngIf="isPasswordReset">
+        <button class="btn btn-small dark" (click)="changeType('login')">
+            < Back</button>
+                <h1>Reset Password</h1>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <div class="form-control">
+            <label>Email Address</label>
+            <input formControlName="email" type="email" autocomplete="off" />
+
+            <span class="err" *ngIf="email.invalid && email.dirty">
+                You must enter a valid email address
+            </span>
+        </div>
+
+        <div class="form-control" *ngIf="!isPasswordReset">
+            <label>Password</label>
+            <input formControlName="password" type="password" autocomplete="off" />
+
+            <span class="err" *ngIf="password.invalid && password.dirty">
+                Password must be at least 6 characters long
+            </span>
+
+        </div>
+        <div style="text-align: right; font-weight: 400; font-size: .8em; margin-bottom: 5px;" *ngIf="isLogin">
+            <span style="color:#a0a0a0; cursor: pointer" (click)="changeType('reset')">Forget Password</span>
+        </div>
+
+        <div class="form-control" *ngIf="isSignup">
+            <label>Confirm Password</label>
+            <input formControlName="passwordConfirm" type="password" autocomplete="off" />
+
+            <span class="err" *ngIf="passwordConfirm.dirty && !passwordDoesMatch">
+                Password does not match
+            </span>
+        </div>
+
+        <span class="err">{{ serverMessage }}</span>
+
+        <button class="btn btn-full-width" *ngIf="isPasswordReset" mat-stroked-button type="submit" [disabled]="loading">
+            Send Reset Email
+        </button>
+
+        <button class="btn btn-full-width" *ngIf="!isPasswordReset && !isSignup" [disabled]="form.invalid || loading"
+            type="submit" mat-flat-button color="primary">
+            Login
+        </button>
+
+        <button class="btn btn-full-width" *ngIf="!isPasswordReset && !isLogin" mat-flat-button color="primary" type="submit"
+            [disabled]="form.invalid || !passwordDoesMatch || loading">
+            Create Account
+        </button>
+
+        <div style="text-align: center; margin: 1em 0em; color: rgba(255,255,255, 0.7);" *ngIf="isSignup">
+            Already have account?
+            <span style="color: #a0a0a0; cursor: pointer" (click)="changeType('login')">Login</span>
+        </div>
+
+        <div style="text-align: center; margin: 1em 0em; color: rgba(255,255,255, 0.7);" *ngIf="isLogin">
+            Don't have account?
+            <span style="color: #a0a0a0; cursor: pointer" (click)="changeType('signup')">Signup</span>
+        </div>
+
+        <!-- <button mat-button *ngIf="isLogin && !isPasswordReset" (click)="changeType('reset')">
+            Forgot password?
+        </button> -->
+    </form>
+
+</div>

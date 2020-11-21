@@ -18,11 +18,7 @@
         <h1 style="text-align: center; margin-top: 3em;" *ngIf="feeds?.length == 0">No Feeds :( </h1>
         <div class="feed-card" *ngFor="let feed of feeds">
             <div class="left">
-                <div class="profile" *ngIf="(authService.user$ | async) as user">
-                    <img class="img" *ngIf="user.photoURL" [src]="user.photoURL">
-                    <div class="img" *ngIf="user.photoURL">{{ user.displayName[0] }}</div>
-                    <div class="img" *ngIf="!(user.photoURL || user.displayName) ">{{ user.email[0] }}</div>
-                </div>
+                <div class="img">{{ feed.email[0] | titlecase }}</div>
             </div>
             <div class="right">
                 <div class="title">

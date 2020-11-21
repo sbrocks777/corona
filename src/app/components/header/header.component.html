@@ -9,9 +9,7 @@
 
         <div class="avatar-wrapper" id="avatarWrapper">
             <div *ngIf="(authService.user$ | async) as user">
-                <img class="avatar-photo" height="38" width="38" *ngIf="user.photoURL" [src]="user.photoURL">
-                <div class="img" *ngIf="user.photoURL">{{ user.displayName[0] }}</div>
-                <div class="img" *ngIf="!(user.photoURL || user.displayName) ">{{ user.email[0] }}</div>
+                <div class="img" *ngIf="user.email">{{ user.email[0] }}</div>
             </div>
             <!-- <img alt="Profile Photo" class="avatar-photo" height="38"
                 src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/287405/profile/profile-512.jpg" width="38"> -->
@@ -24,8 +22,8 @@
             </svg> -->
         </div>
         <div class="dropdown-wrapper" id="dropdownWrapper">
-            <div class="dropdown-profile-details"  *ngIf="(authService.user$ | async) as user">
-                <span *ngIf="user.displayName" class="dropdown-profile-details--name">{{ user.displayName }}</span>
+            <div class="dropdown-profile-details" *ngIf="(authService.user$ | async) as user">
+                <!-- <span *ngIf="user.displayName" class="dropdown-profile-details--name"></span> -->
                 <span class="dropdown-profile-details--email">{{ user.email | titlecase }}</span>
             </div>
             <div class="dropdown-links">

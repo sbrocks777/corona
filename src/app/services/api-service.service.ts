@@ -33,6 +33,7 @@ export class ApiServiceService {
             this.db.collection('feeds').add({
               ...data,
               uid: user.uid,
+              email: user.email,
               createDate: firebase.default.firestore.FieldValue.serverTimestamp(),
             })
           );

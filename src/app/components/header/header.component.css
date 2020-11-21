@@ -138,3 +138,14 @@ header {
 .dropdown-links a:last-of-type {
   padding-bottom: 0;
 }
+
+.new-feed {
+  color: lightblue;
+  font-size: small;
+}
+
+@media only screen and (max-width: 425px) {
+  header {
+    font-size: 1.2em;
+  }
+}

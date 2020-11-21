@@ -6,14 +6,14 @@
             <div class="img" *ngIf="user.photoURL">{{ user.displayName[0] }}</div>
             <div class="img" *ngIf="!(user.photoURL || user.displayName) ">{{ user.email[0] }}</div>
         </div> -->
-
+        <div *ngIf="!(authService.user$ | async)">
+            <a routerLink="register" class="new-feed">+ New Feed</a>
+        </div>
         <div class="avatar-wrapper" id="avatarWrapper">
             <div *ngIf="(authService.user$ | async) as user">
                 <div class="img" *ngIf="user.email">{{ user.email[0] }}</div>
             </div>
-            <div *ngIf="!(authService.user$ | async)">
-                <a routerLink="register">+ New Feed</a>
-            </div>
+
             <!-- <img alt="Profile Photo" class="avatar-photo" height="38"
                 src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/287405/profile/profile-512.jpg" width="38"> -->
             <!-- <svg class="avatar-dropdown-arrow" height="24" id="dropdownWrapperArrow" viewbox="0 0 24 24" width="24"

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-footer',
@@ -16,9 +17,13 @@ import { Component, OnInit } from '@angular/core';
         <i class="material-icons">info</i>
         <span>About</span>
       </a>
-      <a routerLink="login">
+      <a *ngIf="!(authService.user$ | async)" routerLink="login">
         <i class="material-icons">rss_feed</i>
-        <span>Blogs</span>
+        <span>Feed</span>
+      </a>
+      <a *ngIf="(authService.user$ | async)" routerLink="feeds">
+        <i class="material-icons">rss_feed</i>
+        <span>Feeds</span>
       </a>
     </footer>
   `,
@@ -43,12 +48,18 @@ import { Component, OnInit } from '@angular/core';
         align-items: center;
         justify-content: space-between;
       }
+
+      @media only screen and (max-width: 430px) {
+        footer {
+          padding: 0em 1em;
+        }
+      }
       
     `,
   ],
 })
 export class FooterComponent implements OnInit {
-  constructor() {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}
 }

@@ -76,7 +76,7 @@ input {
 }
 
 .btn {
-  padding: .6em 1em;
+  padding: 0.6em 1em;
   margin: 5px 0px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -87,15 +87,16 @@ input {
   outline: none;
   border-radius: 3px;
   background-color: rgba(0, 139, 139, 1);
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
-.btn:disabled, .btn:disabled:hover {
-  opacity: .7;
+.btn:disabled,
+.btn:disabled:hover {
+  opacity: 0.7;
 }
 
 .btn:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .btn.dark {
@@ -103,11 +104,24 @@ input {
 }
 
 .btn.btn-small {
-  padding: .4em .6em;
+  padding: 0.4em 0.6em;
 }
 
 .btn.btn-full-width {
   width: 100%;
+}
+
+.img {
+  height: 38px;
+  width: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 900;
+  background: aquamarine;
+  border-radius: 50%;
 }
 
 .lds-hourglass {

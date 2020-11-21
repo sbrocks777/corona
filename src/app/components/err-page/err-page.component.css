@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 9em;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 5em;
+}

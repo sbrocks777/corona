@@ -1,0 +1,22 @@
+<div class="feed-list">
+    <div class="feed-card">
+        <div class="left">
+            <div class="profile" *ngIf="(authService.user$ | async) as user">
+                <img class="img" *ngIf="user.photoURL" [src]="user.photoURL">
+                <div class="img" *ngIf="user.photoURL">{{ user.displayName[0] }}</div>
+                <div class="img" *ngIf="!(user.photoURL || user.displayName) ">{{ user.email[0] }}</div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title">
+                Hello World!
+            </div>
+            <div class="content">
+                {{ str }}
+            </div>
+            <div class="footer">
+                <p class="footer">Date: 23/11/2020</p>   
+            </div>
+        </div>
+    </div>
+</div>

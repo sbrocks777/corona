@@ -1,0 +1,37 @@
+<header>
+    <div class="title">{{ title }}</div>
+    <div class="header-right">
+        <!-- <div class="profile" *ngIf="(authService.user$ | async) as user">
+            <img class="img" *ngIf="user.photoURL" [src]="user.photoURL">
+            <div class="img" *ngIf="user.photoURL">{{ user.displayName[0] }}</div>
+            <div class="img" *ngIf="!(user.photoURL || user.displayName) ">{{ user.email[0] }}</div>
+        </div> -->
+
+        <div class="avatar-wrapper" id="avatarWrapper">
+            <div *ngIf="(authService.user$ | async) as user">
+                <img class="avatar-photo" height="38" width="38" *ngIf="user.photoURL" [src]="user.photoURL">
+                <div class="img" *ngIf="user.photoURL">{{ user.displayName[0] }}</div>
+                <div class="img" *ngIf="!(user.photoURL || user.displayName) ">{{ user.email[0] }}</div>
+            </div>
+            <!-- <img alt="Profile Photo" class="avatar-photo" height="38"
+                src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/287405/profile/profile-512.jpg" width="38"> -->
+            <!-- <svg class="avatar-dropdown-arrow" height="24" id="dropdownWrapperArrow" viewbox="0 0 24 24" width="24"
+                xmlns="http://www.w3.org/2000/svg">
+                <title>Dropdown Arrow</title>
+                <path
+                    d="M12 14.5c-.2 0-.3-.1-.5-.2l-3.8-3.6c-.2-.2-.2-.4-.2-.5 0-.1 0-.3.2-.5.3-.3.7-.3 1 0l3.3 3.1 3.3-3.1c.2-.2.5-.2.8-.1.3.1.4.4.4.6 0 .2-.1.4-.2.5l-3.8 3.6c-.1.1-.3.2-.5.2z">
+                </path>
+            </svg> -->
+        </div>
+        <div class="dropdown-wrapper" id="dropdownWrapper">
+            <div class="dropdown-profile-details"  *ngIf="(authService.user$ | async) as user">
+                <span *ngIf="user.displayName" class="dropdown-profile-details--name">{{ user.displayName }}</span>
+                <span class="dropdown-profile-details--email">{{ user.email | titlecase }}</span>
+            </div>
+            <div class="dropdown-links">
+                <a routerLink="create-feed">+ New Feed</a>
+                <a (click)="authService.signOut()"># Sign out</a>
+            </div>
+        </div>
+    </div>
+</header>

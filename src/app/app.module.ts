@@ -19,7 +19,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
-import { BlogComponent } from './components/blog/blog.component';
+import { FeedsComponent } from './components/blog/feeds.component';
+import { TruncatePipe } from './components/blog/truncate.pipe';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { BlogComponent } from './components/blog/blog.component';
     AboutComponent,
     ErrPageComponent,
     SkeletonLoaderComponent,
-    BlogComponent,
+    FeedsComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,33 @@
+.feed-card {
+    display: grid;
+    grid-template-columns: 5% auto;
+    grid-column-gap: 1em;
+    margin: 1em;
+    padding: 1em;
+    border-radius: 10px;
+    background: var(--text-dark-1);
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1.5em;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 5px;
+    color: #f3f3f3;
+}
+
+.footer {
+    color: #aaa;
+    font-size: .9em;
+}
+
+@media only screen and (max-width: 430px) 
+{
+    .feed-card {
+        grid-column-gap: 3em;
+        font-size: .9em;
+        line-height: 1.4em;
+    }
+}

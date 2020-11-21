@@ -4,7 +4,7 @@ import { GlobalComponent } from './components/global/global.component';
 import { ContiresComponent } from './components/contires/contires.component';
 import { AboutComponent } from './components/about/about.component';
 import { ErrPageComponent } from './components/err-page/err-page.component';
-import { BlogComponent } from './components/blog/blog.component';
+import { FeedsComponent } from './components/blog/feeds.component';
 
 const routes: Routes = [
   { path: 'global', redirectTo: '' },
@@ -20,7 +20,7 @@ const routes: Routes = [
     data: { title: 'Contries' },
   },
   { path: 'about', component: AboutComponent, data: { title: 'About' } },
-  { path: 'blog', component: BlogComponent, data: { title: 'Blog' } },
+  { path: 'feeds', component: FeedsComponent, data: { title: 'Feeds' } },
   { path: 'register',
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
   },

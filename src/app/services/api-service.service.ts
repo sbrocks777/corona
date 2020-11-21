@@ -30,7 +30,7 @@ export class ApiServiceService {
       this.authService.user$.subscribe((user) => {
         if (user) {
           resolve(
-            this.db.collection('feed').add({
+            this.db.collection('feeds').add({
               ...data,
               uid: user.uid,
               createDate: firebase.default.firestore.FieldValue.serverTimestamp(),
@@ -44,10 +44,10 @@ export class ApiServiceService {
   }
 
   getAllFeeds() {
-    return this.db.collection('feed').valueChanges({ idField: 'id' });
+    return this.db.collection('feeds').valueChanges({ idField: 'id' });
   }
 
   deleteFeed(id: string) {
-    this.db.collection('feed').doc(id).delete();
+    this.db.collection('feeds').doc(id).delete();
   }
 }

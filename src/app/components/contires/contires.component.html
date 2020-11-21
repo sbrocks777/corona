@@ -1,0 +1,17 @@
+<input type="text" class="searchbox" [(ngModel)]="searchCountry">
+
+<ng-container *ngIf="!loading">
+    <div class="contries" *ngFor="let country of countries | filter:searchCountry">
+        <div>{{country.country}}</div>
+        <p>
+            Cases: {{country.cases | number}} | Today: {{country.todayCases | number}} | Active:
+            {{country.active | number}}<br>
+            Deaths: {{country.deaths | number}} | Today: {{country.todayDeaths | number}}<br>
+            Recovered: {{country.recovered | number}} | Critical {{country.critical | number}}
+        </p>
+    </div>
+</ng-container>
+
+<div class="centered" *ngIf="loading">
+    <div class="lds-hourglass"></div>
+</div>

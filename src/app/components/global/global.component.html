@@ -1,0 +1,37 @@
+<ng-container *ngIf="loading">
+    <div class="card" *ngFor="let data of [{}, {}, {}]">
+        <div class="label">
+            <app-skeleton-loader Cwidth="70px" Cheight="12px"></app-skeleton-loader>
+        </div>
+        <div class="title">
+            <app-skeleton-loader Cwidth="36%" Cheight="15px"></app-skeleton-loader>
+        </div>
+
+        <div class="count">
+            <app-skeleton-loader Cwidth="45%" Cheight="20px"></app-skeleton-loader>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!loading">
+
+    <div class="card">
+        <div class="label">Global</div>
+        <div class="title">Cases</div>
+        <div class="count">{{info?.cases | number}}</div>
+    </div>
+
+    <div class="card">
+        <div class="label">Global</div>
+        <div class="title">Deaths</div>
+        <div class="count">{{info?.deaths | number}}</div>
+    </div>
+
+    <div class="card">
+        <div class="label">Global</div>
+        <div class="title">Recovered</div>
+        <div class="count">
+            {{info?.recovered | number}}
+        </div>
+    </div>
+</ng-container>

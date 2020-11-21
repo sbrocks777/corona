@@ -1,0 +1,25 @@
+.card {
+  background: var(--text-dark-1);
+  border: 1ppx solid #ccc;
+  color: var(--text-light-1);
+  padding: 1em;
+  margin: 1em;
+  border-radius: 5px;
+}
+
+.label {
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.count {
+  font-weight: 500;
+  font-size: 1.4em;
+}
+
+.title {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: var(--text-white);
+  margin: 5px 0px;
+}

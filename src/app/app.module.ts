@@ -21,6 +21,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { FeedsComponent } from './components/blog/feeds.component';
 import { TruncatePipe } from './components/blog/truncate.pipe';
+import { NewFeedComponent } from './components/new-feed/new-feed.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { TruncatePipe } from './components/blog/truncate.pipe';
     ErrPageComponent,
     SkeletonLoaderComponent,
     FeedsComponent,
-    TruncatePipe
+    TruncatePipe,
+    NewFeedComponent
   ],
   imports: [
     BrowserModule,

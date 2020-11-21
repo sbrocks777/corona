@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+    <div class="form-control">
+        <label>Title</label>
+        <input type="text" formControlName="title">
+        <span class="err" *ngIf="fc.title.invalid && fc.title.dirty">
+            This field is required
+        </span>
+    </div>
+
+    <div class="form-control">
+        <label>Content</label>
+        <textarea type="text" rows="5" formControlName="content"></textarea>
+        <span class="err" *ngIf="fc.title.invalid && fc.title.dirty">
+            This field is required
+        </span>
+    </div>
+
+    <button type="submit" class="btn btn-full-width" [disabled]="form.invalid || loading">Submit</button>
+</form>

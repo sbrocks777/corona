@@ -5,6 +5,7 @@ import { ContiresComponent } from './components/contires/contires.component';
 import { AboutComponent } from './components/about/about.component';
 import { ErrPageComponent } from './components/err-page/err-page.component';
 import { FeedsComponent } from './components/blog/feeds.component';
+import { NewFeedComponent } from './components/new-feed/new-feed.component';
 
 const routes: Routes = [
   { path: 'global', redirectTo: '' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   },
   { path: 'about', component: AboutComponent, data: { title: 'About' } },
   { path: 'feeds', component: FeedsComponent, data: { title: 'Feeds' } },
+  { path: 'new-feed', component: NewFeedComponent, data: { title: 'New Feeds' } },
   { path: 'register',
     loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
   },

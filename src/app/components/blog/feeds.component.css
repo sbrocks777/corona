@@ -6,7 +6,7 @@
     padding: 1em;
     border-radius: 10px;
     background: var(--text-dark-1);
-    color: #aaa;
+    color: #ccc;
     cursor: pointer;
     line-height: 1.5em;
 }
@@ -19,8 +19,9 @@
 }
 
 .footer {
-    color: #aaa;
+    color: #a0a0a0;
     font-size: .9em;
+    margin: 2px 0px;
 }
 
 @media only screen and (max-width: 430px) 

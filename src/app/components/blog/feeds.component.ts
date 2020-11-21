@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
   selector: 'app-feeds',
@@ -9,29 +10,23 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class FeedsComponent implements OnInit {
   form: FormGroup;
+  loading: boolean = true;
+  feeds: any;
 
-  str:string = `
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae iste deserunt quo, dicta
-    recusandae officia facere dolor optio soluta obcaecati sit mollitia, ipsa facilis quia, quos error autem
-    non pariatur?
-    Sed quos sequi, in cum, aliquam architecto, accusantium quasi nihil incidunt asperiores itaque labore
-    necessitatibus eligendi alias ducimus deleniti optio molestias aut magnam. Aliquid impedit sed
-    architecto quisquam repellendus molestias.
-    Quaerat nisi animi ex voluptate ipsam qui exercitationem dolor veniam quod magni quis quas non, iste
-    maiores consequatur explicabo dolorum excepturi vitae quia, voluptates saepe? Pariatur natus explicabo
-    accusamus excepturi!
-  `;
-
-  constructor(private fb: FormBuilder, public authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    public authService: AuthService,
+    private api: ApiServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      title: ['', Validators.required],
-      content: ['', Validators.required],
+    this.api.getAllFeeds().subscribe((feeds) => {
+      this.loading = false;
+      this.feeds = feeds;
     });
   }
 
-  get fc(): any {
-    return this.form['controls'];
+  delete(id: string) {
+    this.api.deleteFeed(id);
   }
 }

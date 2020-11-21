@@ -17,7 +17,7 @@ import { AuthService } from 'src/app/services/auth.service';
         <i class="material-icons">info</i>
         <span>About</span>
       </a>
-      <a *ngIf="!(authService.user$ | async)" routerLink="login">
+      <a *ngIf="!(authService.user$ | async)" routerLink="register">
         <i class="material-icons">rss_feed</i>
         <span>Feed</span>
       </a>
